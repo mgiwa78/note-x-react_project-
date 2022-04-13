@@ -1,5 +1,6 @@
 .user-home-blur {
-  background-color: rgba(255, 255, 255, 0.2);
+  //background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 19, 19, 0.2);
   border-radius: 20px;
   backdrop-filter: blur(2rem);
   padding: 50px;
@@ -7,10 +8,11 @@
 .notes-container {
   width: 45%;
   max-width: 430px;
-  height: 550px;
+  height: 590px;
   .notes-list-container {
-    margin-top: 20px;
-    overflow-y: auto;
+    margin-top: 10px;
+    overflow-y: scroll;
+    height: 430px;
     scroll-behavior: smooth;
   }
 }

@@ -6,6 +6,7 @@ import NOTE_CONTENT from "./note-list.utils/note-content";
 
 import Button from "../Button/button.component";
 import Sort from "../sort/sort.component";
+import Pagination from "../pagination/pagination.component";
 
 const NoteList = () => {
   return (
@@ -26,6 +27,7 @@ const NoteList = () => {
           );
         })}
       </div>
+      <Pagination />
     </div>
   );
 };

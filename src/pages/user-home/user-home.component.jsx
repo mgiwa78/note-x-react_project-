@@ -5,6 +5,7 @@ import "./user-home.styles.scss";
 
 import NoteList from "../../components/note-list/note-list.component";
 import NotesView from "../../components/notes-view/notes-view.component";
+import Pagination from "../../components/pagination/pagination.component";
 
 const UserHome = () => {
   return (
