@@ -9,10 +9,12 @@ const SignIn = () => {
         {" "}
         Have an account? <br /> Sign In now
       </p>
-      <FormInput type="email" name="email" placeholder="Email:" />
-      <br />
-      <FormInput type="password" name="password" placeholder="Password:" />
-      <Button auth> Sign In</Button>
+      <div className="sign-in-form">
+        <FormInput type="email" name="email" placeholder="Email:" />
+        <br />
+        <FormInput type="password" name="password" placeholder="Password:" />
+      </div>
+      <Button styled> Sign In</Button>
     </div>
   );
 };

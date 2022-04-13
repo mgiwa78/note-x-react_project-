@@ -1,10 +1,17 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   padding: 30px 100px;
+  box-sizing: border-box;
   margin: 0;
   font-family: "Open sans";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  height: 100vh;
 }
 
 code {

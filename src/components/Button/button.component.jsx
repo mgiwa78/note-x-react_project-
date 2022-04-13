@@ -1,9 +1,13 @@
 import "./button.styles.scss";
 
-const Button = ({ auth, btnOnclick, children }) => {
+const Button = ({ createBtn, deleteBtn, styled, btnOnclick, children }) => {
   const onClickHandler = () => btnOnclick();
-  return auth ? (
-    <div className="auth-btn">{children}</div>
+  return styled ? (
+    <div className="btn auth-btn">{children}</div>
+  ) : createBtn ? (
+    <div className="btn createBtn">{children}</div>
+  ) : deleteBtn ? (
+    <div className="btn deleteBtn">{children}</div>
   ) : (
     <div className="nav-btn-text" onClick={onClickHandler}>
       {children}

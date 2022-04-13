@@ -1,0 +1,16 @@
+.user-home-blur {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(2rem);
+  padding: 50px;
+}
+.notes-container {
+  width: 45%;
+  max-width: 430px;
+  height: 550px;
+  .notes-list-container {
+    margin-top: 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+}
