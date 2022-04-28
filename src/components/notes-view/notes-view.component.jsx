@@ -1,6 +1,4 @@
-import Button from "../Button/button.component";
 import CreateNote from "../create-note-tab/create-note.component";
-import NoteForm from "../note-input/note-input.component";
 import "./notes-view.styles.scss";
 
 const NotesView = () => {

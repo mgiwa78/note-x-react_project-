@@ -1,8 +1,41 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { signUserInWithEmailAndPassword } from "../../firebase/firebase.utils";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 import Button from "../Button/button.component";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.scss";
 
 const SignIn = () => {
+  const user = useSelector(selectCurrentUser);
+  const Navigate = useNavigate();
+  const defaultForm = {
+    email: "",
+    password: "",
+  };
+
+  const [formFields, setFormFields] = useState(defaultForm);
+  const { email, password } = formFields;
+
+  const handleChange = (event) => {
+    const { value, name } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  const handleSubmit = () => {
+    signUserInWithEmailAndPassword(email, password);
+  };
+
+  const displayUserHome = () => {
+    if (user) {
+      console.log("change");
+      Navigate("/user");
+    }
+  };
+
+  useEffect(() => displayUserHome(), [user]);
   return (
     <div className="sign-in-container">
       <p className="sign-in-title">
@@ -10,11 +43,24 @@ const SignIn = () => {
         Have an account? <br /> Sign In now
       </p>
       <div className="sign-in-form">
-        <FormInput type="email" name="email" placeholder="Email:" />
+        <FormInput
+          type="email"
+          onChange={handleChange}
+          name="email"
+          placeholder="Email:"
+        />
         <br />
-        <FormInput type="password" name="password" placeholder="Password:" />
+        <FormInput
+          type="password"
+          onChange={handleChange}
+          name="password"
+          placeholder="Password:"
+        />
       </div>
-      <Button styled> Sign In</Button>
+      <Button btnOnclick={handleSubmit} styled>
+        {" "}
+        Sign In
+      </Button>
     </div>
   );
 };

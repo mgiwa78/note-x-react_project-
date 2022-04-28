@@ -3,7 +3,7 @@ import { ReactComponent as SyncOff } from "../../svg/sync-off.svg";
 import { ReactComponent as SyncOn } from "../../svg/sync-on.svg";
 import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-colour";
 
-const Note = ({ title, date, priority, sync, body, backgroundColour }) => {
+const Note = ({ title, date, priority, sync, body }) => {
   return (
     <div
       className="note-container"
