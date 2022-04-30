@@ -62,9 +62,19 @@ export const getUserDataAsync = async (user) => {
   if (!userDataSnapShot.exists()) return;
   // if (userDataSnapShot.data().notes) return;
   // await setDoc(userDataRef, NOTE_DATA);
-  const notesData = userDataSnapShot.data().notes;
+  const notesRawData = await userDataSnapShot.data().notes;
+  console.log(notesRawData["note03"]);
 
-  return notesData;
+  const noteKeys = Object.keys(notesRawData);
+  let acc = {};
+
+  const notesData = noteKeys.forEach((noteKey) => {
+    const note = { ...notesRawData[noteKey], sync: true };
+
+    acc = { ...acc, [noteKey]: note };
+  });
+
+  return acc;
 
   // await setDoc(userDataRef, { full_name, created_at: date });
 };

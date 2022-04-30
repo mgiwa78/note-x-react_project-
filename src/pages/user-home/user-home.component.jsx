@@ -9,18 +9,24 @@ import NotesView from "../../components/notes-view/notes-view.component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { getUserDataAsync } from "../../firebase/firebase.utils";
-import { setUserNotes } from "../../redux/user/user.action";
+import {
+  fetchNotesAcion,
+  SetUserNotes,
+  SetUserNotesAction,
+} from "../../redux/notes/notes-actions";
 
 const UserHome = () => {
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
   const fetchUserNote = async () => {
-    const UserNote = await getUserDataAsync(user);
-    dispatch(setUserNotes(UserNote));
+    const NewNotes = await getUserDataAsync(user);
+    console.log(NewNotes);
+    dispatch(SetUserNotesAction(NewNotes));
   };
 
   useEffect(() => {
+    if (!user) return;
     fetchUserNote();
   }, [user]);
   return (

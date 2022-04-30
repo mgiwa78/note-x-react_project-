@@ -11,7 +11,7 @@ const Note = ({ title, date, priority, sync, body }) => {
     >
       <div className="note-head">
         <p className="note-title">{title}</p>{" "}
-        <span className="note-date">{date}</span>
+        {date && <span className="note-date">{date}</span>}
       </div>
       {body.length ? <div className="note-body">{body}</div> : null}
 

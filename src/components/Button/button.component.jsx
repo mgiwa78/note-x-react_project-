@@ -8,9 +8,13 @@ const Button = (props) => {
       {children}
     </div>
   ) : createBtn ? (
-    <div className="btn createBtn">{children}</div>
+    <div onClick={btnOnclick} className="btn createBtn">
+      {children}
+    </div>
   ) : deleteBtn ? (
-    <div className="btn deleteBtn">{children}</div>
+    <div onClick={btnOnclick} className="btn deleteBtn">
+      {children}
+    </div>
   ) : (
     <div className="nav-btn-text" onClick={btnOnclick}>
       {children}

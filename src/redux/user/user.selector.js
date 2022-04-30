@@ -6,14 +6,11 @@ const selectUserReducer = (state) => {
 
 export const selectCurrentUser = createSelector(
   [selectUserReducer],
-  (selectUserReducer) => {
-    console.log(selectUserReducer);
-    return selectUserReducer.currentUser;
-  }
+  (selectUserReducer) => selectUserReducer.currentUser
 );
-export const selectUserNotes = createSelector(
-  [selectUserReducer],
-  (selectUserReducer) => {
-    return selectUserReducer.notes && Object.values(selectUserReducer.notes);
-  }
-);
+// export const selectUserNotes = createSelector(
+//   [selectUserReducer],
+//   (selectUserReducer) => {
+//     return selectUserReducer.notes && Object.values(selectUserReducer.notes);
+//   }
+// );

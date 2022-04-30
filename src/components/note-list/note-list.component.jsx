@@ -8,25 +8,29 @@ import Sort from "../sort/sort.component";
 import Pagination from "../pagination/pagination.component";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectUserNotes } from "../../redux/user/user.selector";
+import {
+  SelectUserNotes,
+  SelectUserNotesArray,
+} from "../../redux/notes/notes-selector";
 
 const NoteList = () => {
-  const notes = useSelector(selectUserNotes);
-  const [userNote, setUserNote] = useState(null);
+  const notes = useSelector(SelectUserNotesArray);
+  const [userNote, setUserNote] = useState([]);
+
   useEffect(() => {
     setUserNote(notes);
-    console.log(notes);
   }, [notes]);
+
   return (
     <div className="notes-container user-home-blur">
       <Button styled> Create new note</Button>
       <Sort />
       <div className="notes-list-container">
         {userNote &&
-          userNote.map(({ title, body, date, priority, sync }) => {
+          userNote.map(({ id, title, body, date, priority, sync }) => {
             return (
               <Note
-                key={title}
+                key={id}
                 title={title}
                 body={body}
                 date={date}
