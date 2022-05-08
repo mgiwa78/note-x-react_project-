@@ -1,10 +1,9 @@
 import { NOTE_ACTION_TYPES } from "./notes-action-types";
 
 const INITIAL_STATE = {
-  UserNotes: [],
+  UserNotes: {},
   NoteDisplay: {},
-  NotesArray: [],
-  
+  NotesArray: {},
 };
 
 const NotesReducer = (state = INITIAL_STATE, action) => {
@@ -26,6 +25,8 @@ const NotesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, UserNotes: payload, NoteDisplay: {} };
     case NOTE_ACTION_TYPES.SET_NOTES_SORT_ARRAY:
       return { ...state, NotesArray: payload };
+    case NOTE_ACTION_TYPES.SET_NOTES_DEFAULT_STATE:
+      return { ...state, ...INITIAL_STATE };
     default:
       return state;
   }

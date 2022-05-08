@@ -1,7 +1,8 @@
 import "./index.scss";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { store } from "./redux/store";
+import { persistor, store } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 import { Provider } from "react-redux";
 import { createRoot } from "react-dom/client";
@@ -11,7 +12,9 @@ const root = createRoot(container);
 root.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App tab="home" />
+      <PersistGate loading={null} persistor={persistor}>
+        <App tab="home" />
+      </PersistGate>
     </Provider>
   </BrowserRouter>
 );

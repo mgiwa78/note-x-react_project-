@@ -11,12 +11,16 @@ import { onAuthStateChangedListener } from "../../firebase/firebase.utils";
 import { useState } from "react";
 import { signUserOut } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
+import { setDefaultStates } from "../../redux/notes/notes-actions";
 
 const NavigationBar = () => {
+  const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
 
   const signOutUser = () => {
     Navigate("/");
+    dispatch(setDefaultStates);
+
     signUserOut();
   };
   const Navigate = useNavigate();

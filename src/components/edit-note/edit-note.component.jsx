@@ -5,7 +5,11 @@ import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-co
 import Button from "../Button/button.component";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewNote, deleteNote, updateNote } from "../../redux/notes/notes-actions";
+import {
+  addNewNote,
+  deleteNote,
+  updateNote,
+} from "../../redux/notes/notes-actions";
 import {
   SelectNoteDisplay,
   SelectUserNotes,
@@ -21,7 +25,6 @@ const EditNote = () => {
 
   useEffect(() => {
     setFormField({ ...noteDisplay });
-
   }, [noteDisplay]);
 
   //   const formDefaults = {
@@ -33,7 +36,7 @@ const EditNote = () => {
   const handleSubmit = (type) => {
     switch (type) {
       case "update":
-        const noteUpdate = { ...formFields, date: null, sync: false };
+        const noteUpdate = { ...formFields, sync: false };
         // dispatch create newnote
         dispatch(updateNote(noteUpdate, notes));
         break;

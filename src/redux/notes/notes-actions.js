@@ -7,6 +7,11 @@ export const SetUserNotesAction = (notes) => {
     payload: notes,
   };
 };
+export const setDefaultStates = () => {
+  return {
+    type: NOTE_ACTION_TYPES.SET_NOTES_DEFAULT_STATE,
+  };
+};
 
 export const SortNotesArrayAction = (prevnotesArray, sortFilter) => {
   const notesArray = SortNotesArray(prevnotesArray, sortFilter);
@@ -123,6 +128,7 @@ export const addNewNote = (newNote, prevNotes, notesObject) => {
     newNoteId = "note0" + newNoteIndex;
   }
   //   const newNoteIndex = prevNotes.length + 1;
+  newNote.id = newNoteId;
 
   const newNotes = {};
 
