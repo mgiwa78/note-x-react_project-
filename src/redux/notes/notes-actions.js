@@ -1,4 +1,3 @@
-import { getUserDataAsync } from "../../firebase/firebase.utils";
 import { NOTE_ACTION_TYPES } from "./notes-action-types";
 
 export const SetUserNotesAction = (notes) => {
@@ -21,8 +20,14 @@ export const SortNotesArrayAction = (prevnotesArray, sortFilter) => {
   };
 };
 
+export const SetNotePage = (newPage) => {
+  return {
+    type: NOTE_ACTION_TYPES.SET_NOTE_PAGE,
+    payload: newPage,
+  };
+};
+
 const SortNotesArray = (notesArray, sortType) => {
-  const prevArray = notesArray;
   switch (sortType) {
     case "title":
       notesArray.sort(function (a, b) {
@@ -90,12 +95,13 @@ export const updateNoteState = (newNote, prevNotes) => {
   };
 };
 
-export const setNoteIsLoading = (prevNotes) => {
-  return {
-    type: NOTE_ACTION_TYPES.NOTE_STATE_ISLOADING_ACTION,
-    payload: noteUpdate,
-  };
-};
+// export const setNoteIsLoading = () => {
+//   return {
+//     type: NOTE_ACTION_TYPES.NOTE_STATE_ISLOADING_ACTION,
+//     payload: noteUpdate,
+//   };
+// };
+
 export const updateNoteDisplay = (displayNote) => {
   return {
     type: NOTE_ACTION_TYPES.UPDATE_NOTE_DISPLAY,
@@ -107,7 +113,6 @@ export const updateNoteDisplay = (displayNote) => {
 export const addNewNote = (newNote, prevNotes, notesObject) => {
   console.log(prevNotes);
   const date = new Date();
-  const month = date.getMonth();
 
   const newNotDate = `${date.getDate()}/${
     date.getMonth() + 1
@@ -132,8 +137,8 @@ export const addNewNote = (newNote, prevNotes, notesObject) => {
 
   const newNotes = {};
 
-  const notesData = prevNotes.forEach((prevNote) => {
-    const note = { ...prevNote, sync: true, isLoading: false };
+  prevNotes.forEach((prevNote) => {
+    // const note = { ...prevNote, sync: true, isLoading: false };
 
     newNotes[prevNote.id] = prevNote;
   });
@@ -198,6 +203,9 @@ export const deleteNote = (noteToDelete, prevNotes) => {
   };
 };
 
+// export const SetNotePageNumber = (action, prePage, noteArray) => {
+//   const prevPage = +prePage;
+// };
 // const noteIsLoading = (prevNotes, noteId) => {
 //   const noteKeys = Object.keys(prevNotes);
 

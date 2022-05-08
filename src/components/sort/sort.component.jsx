@@ -1,10 +1,6 @@
 import "./sort.style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  SetNotesArrayAction,
-  SetUserNotesAction,
-  SortNotesArrayAction,
-} from "../../redux/notes/notes-actions";
+import { SortNotesArrayAction } from "../../redux/notes/notes-actions";
 import { SelectUserNotesArray } from "../../redux/notes/notes-selector";
 
 const Sort = () => {

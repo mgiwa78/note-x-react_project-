@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   UserNotes: {},
   NoteDisplay: {},
   NotesArray: {},
+  NotesPage: 1,
 };
 
 const NotesReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +28,8 @@ const NotesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, NotesArray: payload };
     case NOTE_ACTION_TYPES.SET_NOTES_DEFAULT_STATE:
       return { ...state, ...INITIAL_STATE };
+    case NOTE_ACTION_TYPES.SET_NOTE_PAGE:
+      return { ...state, NotesPage: payload };
     default:
       return state;
   }

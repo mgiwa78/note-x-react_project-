@@ -5,14 +5,9 @@ import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-co
 import Button from "../Button/button.component";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addNewNote,
-  deleteNote,
-  updateNote,
-} from "../../redux/notes/notes-actions";
+import { deleteNote, updateNote } from "../../redux/notes/notes-actions";
 import {
   SelectNoteDisplay,
-  SelectUserNotes,
   SelectUserNotesArray,
 } from "../../redux/notes/notes-selector";
 
@@ -31,23 +26,24 @@ const EditNote = () => {
   //     ...noteDisplay,
   //   };
 
-  const { id, title, body, priority } = formFields;
+  const { title, body, priority } = formFields;
 
   const handleSubmit = (type) => {
     switch (type) {
-      case "update":
+      case "update": {
         const noteUpdate = { ...formFields, sync: false };
         // dispatch create newnote
         dispatch(updateNote(noteUpdate, notes));
         break;
-      case "discard":
+      }
+      case "discard": {
         const noteToDelete = { ...formFields };
         // dispatch create newnote
         dispatch(deleteNote(noteToDelete, notes));
         //clear formfields
 
         break;
-
+      }
       default:
         break;
     }

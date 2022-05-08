@@ -9,12 +9,7 @@ import NotesView from "../../components/notes-view/notes-view.component";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { getUserDataAsync } from "../../firebase/firebase.utils";
-import {
-  fetchNotesAcion,
-  SetNotesArray,
-  SetUserNotes,
-  SetUserNotesAction,
-} from "../../redux/notes/notes-actions";
+import { SetUserNotesAction } from "../../redux/notes/notes-actions";
 
 const UserHome = () => {
   const user = useSelector(selectCurrentUser);

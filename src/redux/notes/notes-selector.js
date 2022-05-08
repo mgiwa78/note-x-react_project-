@@ -20,3 +20,7 @@ export const SelectUserNotesArrayObject = createSelector(
   [noteState],
   (noteState) => noteState.NotesArray
 );
+export const SelectNotesPage = createSelector(
+  [noteState],
+  (noteState) => noteState.NotesPage
+);

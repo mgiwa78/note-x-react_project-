@@ -2,20 +2,14 @@ import "./note.styles.scss";
 import { ReactComponent as SyncOff } from "../../svg/sync-off.svg";
 import { ReactComponent as SyncOn } from "../../svg/sync-on.svg";
 import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-colour";
-import {
-  setNoteIsLoading,
-  updateNoteDisplay,
-} from "../../redux/notes/notes-actions";
+import { updateNoteDisplay } from "../../redux/notes/notes-actions";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SelectNoteDisplay,
   SelectUserNotes,
-  SelectUserNotesArray,
 } from "../../redux/notes/notes-selector";
 import { syncNoteData } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
-import { useNavigate, useParams } from "react-router";
-import { useEffect, useState } from "react";
 
 const Note = ({ id, title, date, priority, sync, body }) => {
   const user = useSelector(selectCurrentUser);
@@ -32,7 +26,7 @@ const Note = ({ id, title, date, priority, sync, body }) => {
   const dispatch = useDispatch();
   const notes = useSelector(SelectUserNotes);
 
-  const handleSync = async (event) => {
+  const handleSync = async () => {
     if (sync) return;
     // console.log("clicked");
     // const noteToSync = {

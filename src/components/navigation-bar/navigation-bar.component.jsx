@@ -2,13 +2,9 @@ import { ReactComponent as Logo } from "../../svg/logo.svg";
 import Button from "../Button/button.component";
 import "./navigation-bar.styles.scss";
 import { useNavigate } from "react-router";
-import { auth } from "../../firebase/firebase.utils";
-import { setCurrentUser } from "../../redux/user/user.action";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { onAuthStateChangedListener } from "../../firebase/firebase.utils";
-import { useState } from "react";
 import { signUserOut } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { setDefaultStates } from "../../redux/notes/notes-actions";
@@ -19,7 +15,7 @@ const NavigationBar = () => {
 
   const signOutUser = () => {
     Navigate("/");
-    dispatch(setDefaultStates);
+    dispatch(setDefaultStates());
 
     signUserOut();
   };
