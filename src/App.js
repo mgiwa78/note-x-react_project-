@@ -3,14 +3,13 @@ import { auth } from "./firebase/firebase.utils";
 
 import "./App.css";
 import { onAuthStateChangedListener } from "./firebase/firebase.utils";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
 import Home from "./components/home/home.component";
 import SignInAndSignUp from "./pages/sign-in-and-signout/sign-in-and-signout.component";
 import NavigationBar from "./components/navigation-bar/navigation-bar.component";
 import UserHome from "./pages/user-home/user-home.component";
-import React, { useEffect } from "react";
-import { selectCurrentUser } from "./redux/user/user.selector";
+import React from "react";
 
 function App() {
   const dispatch = useDispatch();

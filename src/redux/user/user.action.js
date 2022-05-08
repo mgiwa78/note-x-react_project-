@@ -1,4 +1,3 @@
-import { getUserData } from "../../firebase/firebase.utils";
 import { USER_ACTION_TYPES } from "./user.types";
 
 export const setCurrentUser = (user) => {

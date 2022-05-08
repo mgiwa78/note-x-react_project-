@@ -1,5 +1,4 @@
-import { applyMiddleware, combineReducers, compose } from "redux";
-import logger from "redux-logger";
+import { combineReducers } from "redux";
 import NotesReducer from "./notes/notes-reducer";
 import { userReducer } from "./user/user.reducer";
 

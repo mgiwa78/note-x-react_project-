@@ -1,11 +1,9 @@
 import "./create-note.styles.scss";
 
 import Button from "../Button/button.component";
-import NoteForm from "../note-input/note-input.component";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateNoteState } from "../../redux/notes/notes-actions";
 import { addNewNote } from "../../redux/notes/notes-actions";
 import {
   SelectUserNotes,
@@ -33,17 +31,16 @@ const CreateNote = () => {
 
   const handleSubmit = (type) => {
     switch (type) {
-      case "create":
+      case "create": {
         const newNote = { ...formFields, date: null, sync: false };
         // dispatch create newnote
-        dispatch(addNewNote(newNote, notes,notesObject));
+        dispatch(addNewNote(newNote, notes, notesObject));
         break;
-      case "discard":
+      }
+      case "discard": {
         //clear formfields
         setFormField(formDefaults);
-
-      default:
-        break;
+      }
     }
   };
   return (

@@ -1,14 +1,6 @@
 import { initializeApp } from "firebase/app";
-import NOTE_DATA from "../notes-data";
 
-import {
-  collection,
-  doc,
-  FieldPath,
-  getDoc,
-  getFirestore,
-  setDoc,
-} from "firebase/firestore";
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 
 import {
   getAuth,
@@ -17,7 +9,6 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { async } from "@firebase/util";
 const firebaseConfig = {
   apiKey: "AIzaSyAzeTjlPHFv6nCM-JAAfcLhNEgxE2KKQBk",
   authDomain: "note-x-personal.firebaseapp.com",
@@ -99,7 +90,7 @@ export const getUserDataAsync = async (user) => {
   const noteKeys = Object.keys(notesRawData);
   let acc = {};
 
-  const notesData = noteKeys.forEach((noteKey) => {
+  noteKeys.forEach((noteKey) => {
     const note = { ...notesRawData[noteKey], sync: true, isLoading: false };
 
     acc = { ...acc, [noteKey]: note };
