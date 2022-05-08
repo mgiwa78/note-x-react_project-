@@ -7,14 +7,16 @@ export const SelectUserNotes = createSelector(
   (noteState) => noteState.UserNotes
 );
 
-export const SelectUserNotesArray = createSelector(
-  [SelectUserNotes],
-  (UserNotesObject) => {
-    const notesId = Object.keys(UserNotesObject);
+export const SelectNoteDisplay = createSelector(
+  [noteState],
+  (noteState) => noteState.NoteDisplay
+);
 
-    return notesId.map((noteId) => ({
-      id: noteId,
-      ...UserNotesObject[noteId],
-    }));
-  }
+export const SelectUserNotesArray = createSelector(
+  [noteState],
+  (noteState) => noteState.NotesArray.notes
+);
+export const SelectUserNotesArrayObject = createSelector(
+  [noteState],
+  (noteState) => noteState.NotesArray
 );

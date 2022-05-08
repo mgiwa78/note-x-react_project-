@@ -13,7 +13,8 @@ import {
 } from "../../redux/notes/notes-selector";
 
 const CreateNote = () => {
-  const notes = useSelector(SelectUserNotes);
+  const notesObject = useSelector(SelectUserNotes);
+  const notes = useSelector(SelectUserNotesArray);
   const dispatch = useDispatch();
   const formDefaults = {
     title: "Title",
@@ -24,41 +25,34 @@ const CreateNote = () => {
 
   const { title, body, priority } = formFields;
 
-  const handleSubmit = (type) => {
-    switch (type) {
-      case "create":
-        const newNote = { ...formFields, date: null, sync: false };
-        // dispatch create newnote
-        dispatch(addNewNote(newNote, notes));
-        break;
-      case "discard":
-        //clear formfields
-        setFormField(formDefaults);
-
-        break;
-
-      default:
-        break;
-    }
-  };
-
   const handleChange = (event) => {
     const { value, name } = event.target;
 
     setFormField({ ...formFields, [name]: value });
   };
+
+  const handleSubmit = (type) => {
+    switch (type) {
+      case "create":
+        const newNote = { ...formFields, date: null, sync: false };
+        // dispatch create newnote
+        dispatch(addNewNote(newNote, notes,notesObject));
+        break;
+      case "discard":
+        //clear formfields
+        setFormField(formDefaults);
+
+      default:
+        break;
+    }
+  };
   return (
     <div className="create-note">
-      <div className="create-note-top">
-        <Button btnOnclick={() => handleSubmit("create")} createBtn>
-          {" "}
-          Create{" "}
-        </Button>
-        <Button btnOnclick={() => handleSubmit("discard")} deleteBtn>
-          {" "}
-          Discard{" "}
-        </Button>
-      </div>
+      <Button btnOnclick={() => handleSubmit("create")} styled>
+        {" "}
+        Create new note
+      </Button>
+
       <div className="note-form-input">
         <div className="top-input">
           <input

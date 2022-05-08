@@ -11,6 +11,7 @@ import { selectCurrentUser } from "../../redux/user/user.selector";
 import { getUserDataAsync } from "../../firebase/firebase.utils";
 import {
   fetchNotesAcion,
+  SetNotesArray,
   SetUserNotes,
   SetUserNotesAction,
 } from "../../redux/notes/notes-actions";
@@ -21,7 +22,6 @@ const UserHome = () => {
 
   const fetchUserNote = async () => {
     const NewNotes = await getUserDataAsync(user);
-    console.log(NewNotes);
     dispatch(SetUserNotesAction(NewNotes));
   };
 
@@ -29,6 +29,7 @@ const UserHome = () => {
     if (!user) return;
     fetchUserNote();
   }, [user]);
+
   return (
     <React.Fragment>
       <PageBlur />

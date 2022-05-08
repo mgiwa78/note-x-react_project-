@@ -1,0 +1,63 @@
+.edit-note-form-input {
+  padding: 20px;
+  color: #000b90;
+
+  //   background: linear-gradient(101deg, rgb(255, 0, 0) 0%, rgb(47, 0, 255) 100%)
+  //     0% 0% no-repeat padding-box;
+  margin-top: 20px;
+  height: 200px;
+  border-radius: 10px;
+
+  .edit-note-input {
+    border: none;
+    border-radius: 0px;
+    background-color: transparent;
+  }
+  .edit-note-title {
+    color: #000b90;
+
+    font-size: 30px;
+    padding: 0 10px;
+    width: 350px;
+
+    &::placeholder {
+      font-weight: 300;
+    }
+  }
+  .edit-note-content {
+    color: #000b90;
+
+    padding: 5px 10px;
+    font-size: 15px;
+    width: 100%;
+
+    &::placeholder {
+      color: #000b90;
+    }
+  }
+  .edit-priority {
+    width: 100px;
+  }
+  select {
+    background-color: transparent;
+    border: none;
+    padding: 0 0 0 0;
+    margin: 0;
+    width: 70%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    color: #000b90;
+  }
+}
+
+.edit-note-top {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.edit-note {
+  border-radius: 10px;
+  color: #000b90;
+}

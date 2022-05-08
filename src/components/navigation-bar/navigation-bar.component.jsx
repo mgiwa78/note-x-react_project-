@@ -22,7 +22,7 @@ const NavigationBar = () => {
   const Navigate = useNavigate();
 
   const signIn = () => Navigate("/auth");
-  console.log("nav-render");
+
   return (
     <div className="navigation-bar">
       <Logo onClick={() => Navigate("/")} />

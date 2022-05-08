@@ -30,7 +30,6 @@ const SignIn = () => {
 
   const displayUserHome = () => {
     if (user) {
-      console.log("change");
       Navigate("/user");
     }
   };

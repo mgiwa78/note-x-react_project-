@@ -1,7 +1,14 @@
 import { initializeApp } from "firebase/app";
 import NOTE_DATA from "../notes-data";
 
-import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  FieldPath,
+  getDoc,
+  getFirestore,
+  setDoc,
+} from "firebase/firestore";
 
 import {
   getAuth,
@@ -10,6 +17,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { async } from "@firebase/util";
 const firebaseConfig = {
   apiKey: "AIzaSyAzeTjlPHFv6nCM-JAAfcLhNEgxE2KKQBk",
   authDomain: "note-x-personal.firebaseapp.com",
@@ -50,26 +58,49 @@ export const createUserDocFromAuth = async (userAuth, full_name) => {
 
   return userRef;
 };
+
+export const syncNoteData = async (user, notes) => {
+  try {
+    console.log(notes);
+
+    const { uid } = user;
+
+    const userDataRef = doc(db, `users/${uid}/`);
+
+    console.log(userDataRef);
+
+    const userDataSnapShot = await getDoc(userDataRef);
+
+    console.log(userDataSnapShot.data().notes);
+
+    const notesRawData = await userDataSnapShot.data().notes;
+
+    if (notes !== notesRawData) {
+      const toSyncNote = { notes };
+      await setDoc(userDataRef, toSyncNote);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const getUserDataAsync = async (user) => {
   if (!user) return;
 
   const { uid } = user;
-  const userDataRef = doc(db, `users/${uid}`);
-  console.log(userDataRef);
-
+  const userDataRef = doc(db, `users/${uid}/`);
   const userDataSnapShot = await getDoc(userDataRef);
 
   if (!userDataSnapShot.exists()) return;
   // if (userDataSnapShot.data().notes) return;
   // await setDoc(userDataRef, NOTE_DATA);
   const notesRawData = await userDataSnapShot.data().notes;
-  console.log(notesRawData["note03"]);
 
   const noteKeys = Object.keys(notesRawData);
   let acc = {};
 
   const notesData = noteKeys.forEach((noteKey) => {
-    const note = { ...notesRawData[noteKey], sync: true };
+    const note = { ...notesRawData[noteKey], sync: true, isLoading: false };
 
     acc = { ...acc, [noteKey]: note };
   });
