@@ -1,4 +1,6 @@
-.form-input-container {
+import styled from "styled-components";
+
+export const FormInputContainer = styled.input`
   border: none;
   width: 300px;
   height: 40px;
@@ -11,4 +13,4 @@
   &::placeholder {
     color: #000b90;
   }
-}
+`;

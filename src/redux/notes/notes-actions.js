@@ -73,6 +73,7 @@ const SortNotesArray = (notesArray, sortType) => {
 };
 
 export const SetNotesArray = (notesObject) => {
+  if (!notesObject) return;
   const notesId = Object.keys(notesObject);
 
   const notesArray = notesId.map((noteId) => ({
@@ -125,12 +126,14 @@ export const addNewNote = (newNote, prevNotes, notesObject) => {
 
   let newNoteId = "note0" + newNoteIndex;
 
-  for (
-    newNoteIndex = prevNotes.length + 1;
-    notesObject[newNoteId];
-    newNoteIndex++
-  ) {
-    newNoteId = "note0" + newNoteIndex;
+  if (notesObject) {
+    for (
+      newNoteIndex = prevNotes.length + 1;
+      notesObject[newNoteId];
+      newNoteIndex++
+    ) {
+      newNoteId = "note0" + newNoteIndex;
+    }
   }
   //   const newNoteIndex = prevNotes.length + 1;
   newNote.id = newNoteId;

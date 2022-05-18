@@ -1,13 +1,14 @@
 import CreateNote from "../create-note-tab/create-note.component";
-import "./notes-view.styles.scss";
+import "./notes-view.styles.jsx";
 import EditNote from "../edit-note/edit-note.component";
+import { NotesViewContainer } from "./notes-view.styles.jsx";
 
 const NotesView = () => {
   return (
-    <div className="notes-view-container user-home-blur">
+    <NotesViewContainer>
       <CreateNote />
-      <div className="view-note">{<EditNote />}</div>
-    </div>
+      <EditNote />
+    </NotesViewContainer>
   );
 };
 

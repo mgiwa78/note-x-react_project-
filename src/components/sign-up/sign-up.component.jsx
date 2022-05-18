@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "../Button/button.component";
 import FormInput from "../form-input/form-input.component";
 import "./sign-up.styles.scss";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
 } from "../../firebase/firebase.utils";
+import { ButtonComponent } from "../Button/button.styles";
 
 const SignUp = () => {
   const defaultFormFields = {
@@ -70,10 +70,10 @@ const SignUp = () => {
         />
       </div>
 
-      <Button btnOnclick={handleSubmit} className="styled-btn" styled>
+      <ButtonComponent onClick={handleSubmit} authBtn>
         {" "}
         Sign Up
-      </Button>
+      </ButtonComponent>
     </div>
   );
 };

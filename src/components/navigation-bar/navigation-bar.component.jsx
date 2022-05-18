@@ -1,6 +1,5 @@
 import { ReactComponent as Logo } from "../../svg/logo.svg";
-import Button from "../Button/button.component";
-import "./navigation-bar.styles.scss";
+import "./navigation-bar.styles.jsx";
 import { useNavigate } from "react-router";
 
 import { useSelector } from "react-redux";
@@ -8,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { signUserOut } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { setDefaultStates } from "../../redux/notes/notes-actions";
+import { ButtonComponent } from "../Button/button.styles";
+import { NavigationBarComponent } from "./navigation-bar.styles.jsx";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
@@ -24,14 +25,18 @@ const NavigationBar = () => {
   const signIn = () => Navigate("/auth");
 
   return (
-    <div className="navigation-bar">
+    <NavigationBarComponent>
       <Logo onClick={() => Navigate("/")} />
       {user ? (
-        <Button btnOnclick={signOutUser}>Sign Out</Button>
+        <ButtonComponent navBtn onClick={signOutUser}>
+          Sign Out
+        </ButtonComponent>
       ) : (
-        <Button btnOnclick={signIn}>Sign In</Button>
+        <ButtonComponent navBtn onClick={signIn}>
+          Sign In
+        </ButtonComponent>
       )}
-    </div>
+    </NavigationBarComponent>
   );
 };
 

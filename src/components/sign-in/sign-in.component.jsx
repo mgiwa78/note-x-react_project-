@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { signUserInWithEmailAndPassword } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
-import Button from "../Button/button.component";
+import { ButtonComponent } from "../Button/button.styles";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.scss";
 
@@ -56,10 +56,10 @@ const SignIn = () => {
           placeholder="Password:"
         />
       </div>
-      <Button btnOnclick={handleSubmit} styled>
+      <ButtonComponent onClick={handleSubmit} authBtn>
         {" "}
         Sign In
-      </Button>
+      </ButtonComponent>
     </div>
   );
 };

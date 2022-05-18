@@ -1,4 +1,4 @@
-import "./note.styles.scss";
+import "./note.styles.jsx";
 import { ReactComponent as SyncOff } from "../../svg/sync-off.svg";
 import { ReactComponent as SyncOn } from "../../svg/sync-on.svg";
 import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-colour";
@@ -10,6 +10,15 @@ import {
 } from "../../redux/notes/notes-selector";
 import { syncNoteData } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
+import {
+  NoteBody,
+  NoteContainer,
+  NoteDate,
+  NoteFooter,
+  NoteHead,
+  NotePriority,
+  NoteTitle,
+} from "./note.styles.jsx";
 
 const Note = ({ id, title, date, priority, sync, body }) => {
   const user = useSelector(selectCurrentUser);
@@ -47,26 +56,24 @@ const Note = ({ id, title, date, priority, sync, body }) => {
   // };
 
   return (
-    <div
+    <NoteContainer
       onClick={handleNoteDisplay}
-      className="note-container"
       style={{ backgroundColor: NOTE_PRIORITY_COLOURS[priority] }}
     >
-      <div className="note-head">
-        <p className="note-title">{title}</p>{" "}
-        {date && <span className="note-date">{date}</span>}
-      </div>
-      {body.length ? <div className="note-body">{body}</div> : null}
+      <NoteHead>
+        <NoteTitle>{title}</NoteTitle> {date && <NoteDate>{date}</NoteDate>}
+      </NoteHead>
+      {body.length ? <NoteBody>{body}</NoteBody> : null}
 
-      <div className="note-footer">
-        <span className="note-priority">Priority: {priority}</span>
+      <NoteFooter>
+        <NotePriority>Priority: {priority}</NotePriority>
         {sync ? (
           <SyncOn onClick={handleSync} className="syn-icon" />
         ) : (
           <SyncOff onClick={handleSync} className="syn-icon" />
         )}
-      </div>
-    </div>
+      </NoteFooter>
+    </NoteContainer>
   );
 };
 

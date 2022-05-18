@@ -1,4 +1,6 @@
-.blur {
+import styled from "styled-components";
+
+export const Blur = styled.div`
   top: 0px;
   left: 0px;
   width: 100vw;
@@ -13,4 +15,4 @@
   opacity: 0.7;
   backdrop-filter: blur(3rem);
   -webkit-backdrop-filter: blur(11px);
-}
+`;

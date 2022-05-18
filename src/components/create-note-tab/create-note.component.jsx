@@ -1,6 +1,4 @@
-import "./create-note.styles.scss";
-
-import Button from "../Button/button.component";
+import "./create-note.styles.jsx";
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +7,14 @@ import {
   SelectUserNotes,
   SelectUserNotesArray,
 } from "../../redux/notes/notes-selector";
-
+import { ButtonComponent } from "../Button/button.styles";
+import {
+  ContentInput,
+  NoteFormInput,
+  Priority,
+  TitleInput,
+  TopInput,
+} from "./create-note.styles.jsx";
 const CreateNote = () => {
   const notesObject = useSelector(SelectUserNotes);
   const notes = useSelector(SelectUserNotesArray);
@@ -45,14 +50,14 @@ const CreateNote = () => {
   };
   return (
     <div className="create-note">
-      <Button btnOnclick={() => handleSubmit("create")} styled>
+      <ButtonComponent onClick={() => handleSubmit("create")} authBtn>
         {" "}
         Create new note
-      </Button>
+      </ButtonComponent>
 
-      <div className="note-form-input">
-        <div className="top-input">
-          <input
+      <NoteFormInput>
+        <TopInput>
+          <TitleInput
             value={title}
             name="title"
             type="text"
@@ -60,7 +65,7 @@ const CreateNote = () => {
             className="note-input note-title"
             onChange={handleChange}
           />
-          <select
+          <Priority
             name="priority"
             defaultValue={priority}
             className="priority"
@@ -70,10 +75,10 @@ const CreateNote = () => {
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
-          </select>
-        </div>
+          </Priority>
+        </TopInput>
         <div className="buttom-input">
-          <input
+          <ContentInput
             value={body}
             name="body"
             type="text"
@@ -82,7 +87,7 @@ const CreateNote = () => {
             onChange={handleChange}
           />
         </div>
-      </div>
+      </NoteFormInput>
     </div>
   );
 };

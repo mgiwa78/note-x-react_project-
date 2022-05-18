@@ -1,9 +1,9 @@
-import "./form-input.styles.scss";
+import "./form-input.styles.jsx";
+import { FormInputContainer } from "./form-input.styles.jsx";
 const FormInput = ({ type, name, placeholder, value, onChange }) => {
   return (
-    <input
+    <FormInputContainer
       value={value}
-      className="form-input-container"
       name={name}
       placeholder={placeholder}
       type={`${type}`}

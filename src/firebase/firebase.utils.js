@@ -87,7 +87,10 @@ export const getUserDataAsync = async (user) => {
   // await setDoc(userDataRef, NOTE_DATA);
   const notesRawData = await userDataSnapShot.data().notes;
 
+  if (!notesRawData) return;
+
   const noteKeys = Object.keys(notesRawData);
+  if (!notesRawData) return;
   let acc = {};
 
   noteKeys.forEach((noteKey) => {

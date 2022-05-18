@@ -1,8 +1,7 @@
-import "./edit-note.styles.scss";
+import "./edit-note.styles.jsx";
 
 import NOTE_PRIORITY_COLOURS from "../note-list/note-list.utils/note-priority-colour";
 
-import Button from "../Button/button.component";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNote, updateNote } from "../../redux/notes/notes-actions";
@@ -10,6 +9,14 @@ import {
   SelectNoteDisplay,
   SelectUserNotesArray,
 } from "../../redux/notes/notes-selector";
+import { ButtonComponent } from "../Button/button.styles";
+import {
+  EditContentInput,
+  EditNoteFormInput,
+  EditTitleInput,
+  EditTopInput,
+  EditPriority,
+} from "./edit-note.styles.jsx";
 
 const EditNote = () => {
   const dispatch = useDispatch();
@@ -57,56 +64,51 @@ const EditNote = () => {
   return (
     <div>
       {title && (
-        <div>
-          <div className="edit-note-top">
-            <Button btnOnclick={() => handleSubmit("update")} createBtn>
+        <>
+          <EditTopInput>
+            <ButtonComponent onClick={() => handleSubmit("update")} createBtn>
               {" "}
               Update{" "}
-            </Button>
-            <Button btnOnclick={() => handleSubmit("discard")} deleteBtn>
+            </ButtonComponent>
+            <ButtonComponent onClick={() => handleSubmit("discard")} deleteBtn>
               {" "}
               Delete{" "}
-            </Button>
-          </div>
+            </ButtonComponent>
+          </EditTopInput>
           <div
             style={{ backgroundColor: NOTE_PRIORITY_COLOURS[priority] }}
             className="edit-note"
           >
-            <div className="edit-note-form-input">
-              <div className="edit-top-input">
-                <input
+            <EditNoteFormInput>
+              <EditTopInput>
+                <EditTitleInput
                   value={title}
                   name="title"
                   type="text"
                   placeholder="Add title here"
-                  className="edit-note-input edit-note-title"
                   onChange={handleChange}
                 />
-                <select
+                <EditPriority
                   name="priority"
                   defaultValue={priority}
-                  className="edit-priority"
                   placeholder="Priority"
                   onChange={handleChange}
                 >
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
                   <option value="Low">Low</option>
-                </select>
-              </div>
-              <div className="edit-content-field">
-                <input
-                  value={body}
-                  name="body"
-                  type="text"
-                  placeholder="Enter text here......"
-                  className="edit-note-input edit-note-content"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
+                </EditPriority>
+              </EditTopInput>
+              <EditContentInput
+                value={body}
+                name="body"
+                type="text"
+                placeholder="Enter text here......"
+                onChange={handleChange}
+              />
+            </EditNoteFormInput>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

@@ -1,4 +1,4 @@
-import "./note-list.styles.scss";
+import "./note-list.styles.jsx";
 
 import Note from "../note/note.component";
 
@@ -15,6 +15,7 @@ import {
 } from "../../redux/notes/notes-selector";
 import { SetNotesArray } from "../../redux/notes/notes-actions";
 import { notesPageArray } from "./note-list.utils/note-list-pagination";
+import { NotesContainer, NotesListContainer } from "./note-list.styles.jsx";
 
 const NoteList = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,9 @@ const NoteList = () => {
 
   useEffect(() => {
     if (!notesArrayState) return;
+    if (!notesObject) return;
     dispatch(SetNotesArray(notesObject));
+
     console.log("triger object State");
   }, [notesObject]);
 
@@ -51,9 +54,9 @@ const NoteList = () => {
   // }, [notePage]);
 
   return (
-    <div className="notes-container user-home-blur">
+    <NotesContainer>
       <Sort />
-      <div className="notes-list-container">
+      <NotesListContainer>
         {notesArray.notes &&
           notesArray.notes.map(({ id, title, body, date, priority, sync }) => {
             return (
@@ -68,9 +71,9 @@ const NoteList = () => {
               />
             );
           })}
-      </div>
+      </NotesListContainer>
       <Pagination />
-    </div>
+    </NotesContainer>
   );
 };
 

@@ -1,7 +1,8 @@
-import "./blur.styles.scss";
+import "./blur.styles.jsx";
+import { Blur } from "./blur.styles.jsx";
 
 const PageBlur = () => {
-  return <div className="blur"></div>;
+  return <Blur></Blur>;
 };
 
 export default PageBlur;

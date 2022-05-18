@@ -1,4 +1,4 @@
-import "./pagination.styles.scss";
+import "./pagination.styles.jsx";
 import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as ArrowLeft } from "../../svg/arrow-left.svg";
@@ -8,6 +8,11 @@ import {
   SelectUserNotesArray,
 } from "../../redux/notes/notes-selector";
 import { SetNotePage } from "../../redux/notes/notes-actions";
+import {
+  ArrowText,
+  PaginationBtn,
+  PaginationContainer,
+} from "./pagination.styles.jsx";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -28,26 +33,20 @@ const Pagination = () => {
     }
   };
   return (
-    <div className="pagination-container">
-      <div
-        onClick={() => handlePageClick("dec", pageNumber)}
-        className="pagination-btn pagination-left"
-      >
+    <PaginationContainer>
+      <PaginationBtn onClick={() => handlePageClick("dec", pageNumber)}>
         <ArrowLeft />
-        <span className="arrow-text left-text">
+        <ArrowText>
           Page {pageNumber - 1 ? `${pageNumber - 1}` : null}
-        </span>
-      </div>
-      <div
-        onClick={() => handlePageClick("inc", pageNumber)}
-        className="pagination-btn pagination-right"
-      >
+        </ArrowText>
+      </PaginationBtn>
+      <PaginationBtn onClick={() => handlePageClick("inc", pageNumber)}>
         <ArrowRight />
-        <span className="arrow-text right-text">
+        <ArrowText>
           Page {pageNumber + 1 > notesArray ? ` ` : `${pageNumber + 1}`}
-        </span>
-      </div>
-    </div>
+        </ArrowText>
+      </PaginationBtn>
+    </PaginationContainer>
   );
 };
 
