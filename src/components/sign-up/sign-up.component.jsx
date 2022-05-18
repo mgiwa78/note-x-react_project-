@@ -34,7 +34,7 @@ const SignUp = () => {
   return (
     <SignUpContainer>
       <SignUpTitle>
-        Don &apos;t Have an account? <br /> Sign Up now
+        Don&apos;t Have an account? <br /> Sign Up now
       </SignUpTitle>
       <SignUpForm>
         <FormInput
