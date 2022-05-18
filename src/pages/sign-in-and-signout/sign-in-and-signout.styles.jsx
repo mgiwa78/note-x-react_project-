@@ -1,10 +1,13 @@
-.signin-signup-page {
+import styled from "styled-components";
+
+export const SigninSignupPage = styled.div`
   display: flex;
   justify-content: center;
-}
-.signin-signup-container {
+`;
+
+export const SigninSignupContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0 100px;
   width: 100%;
   height: 520px;
@@ -19,4 +22,4 @@
   border-radius: 39px;
   opacity: 1;
   backdrop-filter: blur(1rem);
-}
+`;

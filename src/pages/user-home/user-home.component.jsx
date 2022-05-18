@@ -1,6 +1,6 @@
 import PageBlur from "../../components/page-blur/blur.component";
 import UserHomeDsignLayer from "../../components/user-home-design/user-home-design.components";
-import "./user-home.styles.scss";
+import "./user-home.styles.jsx";
 
 import React, { useEffect } from "react";
 
@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { getUserDataAsync } from "../../firebase/firebase.utils";
 import { SetUserNotesAction } from "../../redux/notes/notes-actions";
+import { UserHomeContainer } from "./user-home.styles";
 
 const UserHome = () => {
   const user = useSelector(selectCurrentUser);
@@ -29,10 +30,10 @@ const UserHome = () => {
     <React.Fragment>
       <PageBlur />
       <UserHomeDsignLayer />
-      <div className="user-home-container">
+      <UserHomeContainer>
         <NoteList />
         <NotesView />
-      </div>
+      </UserHomeContainer>
     </React.Fragment>
   );
 };

@@ -17,7 +17,7 @@ const Home = () => {
       <HomeStyle>
         <HeroSection>
           <HeroText />
-          <HeroImg className="hero-image" />
+          <HeroImg style={{ height: "600px", marginTop: "-90px" }} />
         </HeroSection>
       </HomeStyle>
     </React.Fragment>

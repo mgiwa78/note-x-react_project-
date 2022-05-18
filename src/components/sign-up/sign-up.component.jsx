@@ -1,11 +1,12 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
-import "./sign-up.styles.scss";
+import "./sign-up.styles.jsx";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
 } from "../../firebase/firebase.utils";
 import { ButtonComponent } from "../Button/button.styles";
+import { SignUpContainer, SignUpForm, SignUpTitle } from "./sign-up.styles.jsx";
 
 const SignUp = () => {
   const defaultFormFields = {
@@ -19,7 +20,6 @@ const SignUp = () => {
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    console.log(value);
     setFormFields({ ...formfields, [name]: value });
   };
 
@@ -32,11 +32,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="sign-up-container">
-      <p className="sign-up-title">
+    <SignUpContainer>
+      <SignUpTitle>
         Don &apos;t Have an account? <br /> Sign Up now
-      </p>
-      <div type="form" className="sign-up-form">
+      </SignUpTitle>
+      <SignUpForm>
         <FormInput
           value={full_name}
           type="text"
@@ -68,13 +68,13 @@ const SignUp = () => {
           placeholder="Confirm Password:"
           onChange={handleChange}
         />
-      </div>
+      </SignUpForm>
 
       <ButtonComponent onClick={handleSubmit} authBtn>
         {" "}
         Sign Up
       </ButtonComponent>
-    </div>
+    </SignUpContainer>
   );
 };
 

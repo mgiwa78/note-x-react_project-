@@ -31,14 +31,11 @@ const NoteList = () => {
     if (!notesArrayState) return;
     if (!notesObject) return;
     dispatch(SetNotesArray(notesObject));
-
-    console.log("triger object State");
   }, [notesObject]);
 
   useEffect(() => {
     if (!notesArrayState.notes?.length) return;
     setnotesRenderArray(notesPageArray(notesArrayState.notes));
-    console.log("triger note State");
   }, [notesArrayState]);
 
   useEffect(() => {

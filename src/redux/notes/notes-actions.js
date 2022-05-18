@@ -112,16 +112,13 @@ export const updateNoteDisplay = (displayNote) => {
 
 /// action helpers
 export const addNewNote = (newNote, prevNotes, notesObject) => {
-  console.log(prevNotes);
   const date = new Date();
 
   const newNotDate = `${date.getDate()}/${
     date.getMonth() + 1
   }/${date.getFullYear()}`;
-  console.log(newNotDate);
 
   newNote.date = newNotDate;
-  console.log(newNote);
   let newNoteIndex = prevNotes.length + 1;
 
   let newNoteId = "note0" + newNoteIndex;

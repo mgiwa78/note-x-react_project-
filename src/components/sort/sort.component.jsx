@@ -1,7 +1,8 @@
-import "./sort.style.scss";
+import "./sort.style.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { SortNotesArrayAction } from "../../redux/notes/notes-actions";
 import { SelectUserNotesArray } from "../../redux/notes/notes-selector";
+import { SortContainer, SortSelect } from "./sort.style.jsx";
 
 const Sort = () => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const Sort = () => {
     dispatch(SortNotesArrayAction(notesArray, SortType));
   };
   return (
-    <div className="sort-container">
-      <select
+    <SortContainer>
+      <SortSelect
         onChange={(e) => handleSortChange(e)}
         name="sort"
         className="sort-toggle"
@@ -26,8 +27,8 @@ const Sort = () => {
         <option value="title">Title</option>
         <option value="date">Date</option>
         <option value="priority">Priority</option>
-      </select>
-    </div>
+      </SortSelect>
+    </SortContainer>
   );
 };
 

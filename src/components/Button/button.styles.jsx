@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 const getBtnType = (props) => {
-  console.log(props);
   return props.authBtn
     ? css`
         height: 40px;

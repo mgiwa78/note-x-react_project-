@@ -106,9 +106,7 @@ export const getUserDataAsync = async (user) => {
 
 export const signUserInWithEmailAndPassword = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => console.log(userCredential)
-    );
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
     console.log(error);
   }

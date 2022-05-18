@@ -5,7 +5,8 @@ import { signUserInWithEmailAndPassword } from "../../firebase/firebase.utils";
 import { selectCurrentUser } from "../../redux/user/user.selector";
 import { ButtonComponent } from "../Button/button.styles";
 import FormInput from "../form-input/form-input.component";
-import "./sign-in.styles.scss";
+import "./sign-in.styles.jsx";
+import { SignInContainer, SignInForm, SignInTitle } from "./sign-in.styles.jsx";
 
 const SignIn = () => {
   const user = useSelector(selectCurrentUser);
@@ -36,12 +37,12 @@ const SignIn = () => {
 
   useEffect(() => displayUserHome(), [user]);
   return (
-    <div className="sign-in-container">
-      <p className="sign-in-title">
+    <SignInContainer>
+      <SignInTitle>
         {" "}
         Have an account? <br /> Sign In now
-      </p>
-      <div className="sign-in-form">
+      </SignInTitle>
+      <SignInForm>
         <FormInput
           type="email"
           onChange={handleChange}
@@ -55,12 +56,12 @@ const SignIn = () => {
           name="password"
           placeholder="Password:"
         />
-      </div>
+      </SignInForm>
       <ButtonComponent onClick={handleSubmit} authBtn>
         {" "}
         Sign In
       </ButtonComponent>
-    </div>
+    </SignInContainer>
   );
 };
 

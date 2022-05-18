@@ -1,5 +1,4 @@
 import OvalDesign from "../design-elements/oval-design/oval-design.component";
-import "./page-design-layer.scss";
 const PageDesignLayer = () => {
   const position1 = {
     top: -30,

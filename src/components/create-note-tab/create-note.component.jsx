@@ -49,7 +49,7 @@ const CreateNote = () => {
     }
   };
   return (
-    <div className="create-note">
+    <>
       <ButtonComponent onClick={() => handleSubmit("create")} authBtn>
         {" "}
         Create new note
@@ -62,7 +62,6 @@ const CreateNote = () => {
             name="title"
             type="text"
             placeholder="Add title here"
-            className="note-input note-title"
             onChange={handleChange}
           />
           <Priority
@@ -83,12 +82,11 @@ const CreateNote = () => {
             name="body"
             type="text"
             placeholder="Enter text here......"
-            className="note-input note-content"
             onChange={handleChange}
           />
         </div>
       </NoteFormInput>
-    </div>
+    </>
   );
 };
 
