@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Blur = styled.div`
   top: 0px;
   left: 0px;
-  width: 100vw;
-  height: 100vh;
+  width: 100vmax;
+  height: 100%;
   z-index: -1;
   position: absolute;
   background: transparent;

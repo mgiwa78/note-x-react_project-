@@ -36,6 +36,7 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
     }
   );
 };
+
 export const createUserDocFromAuth = async (userAuth, full_name) => {
   console.log(userAuth);
   const userRef = doc(db, "users", userAuth.uid);
@@ -108,7 +109,7 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
-    console.log(error);
+    alert("We encountered an error:", error);
   }
 };
 

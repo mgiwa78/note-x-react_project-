@@ -3,14 +3,20 @@ import styled, { css } from "styled-components";
 const getBtnType = (props) => {
   return props.authBtn
     ? css`
-        height: 40px;
-        font-size: 24px;
-        width: 220px;
+        height: 20px;
+        font-size: 14px;
+        width: 120px;
         background: transparent
           linear-gradient(105deg, #ed3107bf 0%, #4c24ff 100%) 0% 0% no-repeat
           padding-box;
         margin: 0;
         font-weight: 600;
+        border-radius: 5px;
+        @media only screen and (min-width: 768px) {
+          height: 29px;
+          font-size: 19px;
+          width: 155px;
+        }
       `
     : props.createBtn
     ? css`
@@ -30,10 +36,13 @@ const getBtnType = (props) => {
       `
     : props.navBtn
     ? css`
-        font-size: 27px;
+        font-size: 20px;
         color: #000b90;
         font-weight: 400;
-        justify-content: baseline;
+        justify-content: center;
+        @media only screen and (min-width: 425px) {
+          font-size: 25px;
+        }
       `
     : "";
 };

@@ -7,10 +7,11 @@ export const SigninSignupPage = styled.div`
 
 export const SigninSignupContainer = styled.div`
   display: flex;
-  justify-content: center;
-  padding: 0 100px;
-  width: 100%;
-  height: 520px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  height: inherit;
   background-color: white;
   margin-top: 50px;
   align-items: center;
@@ -22,4 +23,9 @@ export const SigninSignupContainer = styled.div`
   border-radius: 39px;
   opacity: 1;
   backdrop-filter: blur(1rem);
+  @media only screen and (min-width: 768px) {
+    height: 346px;
+    width: 680px;
+    justify-content: space-around;
+  }
 `;

@@ -25,6 +25,8 @@ const SignUp = () => {
 
   const handleSubmit = async () => {
     if (!email === password) return;
+    if (confirmPassword !== password)
+      return alert("Invalid password combination");
     const userAuth = await createAuthUserWithEmailAndPassword(email, password);
     console.log(userAuth);
 
