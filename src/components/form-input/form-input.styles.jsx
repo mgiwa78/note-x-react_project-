@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormInputContainer = styled.input`
   border: none;
-  width: 90%;
+  width: 100%;
   height: 25px;
   border-radius: 5px;
   margin-bottom: 5px;

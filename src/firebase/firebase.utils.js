@@ -109,6 +109,7 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
+    console.error(error);
     alert("We encountered an error:", error);
   }
 };

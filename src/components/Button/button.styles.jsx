@@ -17,6 +17,11 @@ const getBtnType = (props) => {
           font-size: 19px;
           width: 155px;
         }
+        @media only screen and (min-width: 500px) {
+          height: 25px;
+          font-size: 17px;
+          width: 105px;
+        }
       `
     : props.createBtn
     ? css`

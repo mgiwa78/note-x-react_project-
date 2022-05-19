@@ -15,5 +15,7 @@ export const SignInForm = styled.div`
 `;
 export const SignInContainer = styled.div`
   margin-bottom: 30px;
-  margin-right: 30px;
+  @media only screen and (min-width: 551px) {
+    margin-right: 30px;
+  }
 `;

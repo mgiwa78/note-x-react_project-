@@ -34,10 +34,11 @@ export const HeroSection = styled.div`
   align-items: center;
   @media only screen and (min-width: 1200px) {
     height: 500px;
+    margin-top: 50px;
   }
   @media only screen and (min-width: 1276px) {
     height: 500px;
-    margin-top: 100px;
+    margin-top: 120px;
   }
   justify-content: center;
   /* border: 2px solid black; */

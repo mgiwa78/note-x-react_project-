@@ -13,6 +13,8 @@ export const SigninSignupContainer = styled.div`
   padding: 20px 40px;
   height: inherit;
   background-color: white;
+  width: 300px;
+
   margin-top: 50px;
   align-items: center;
 
@@ -20,10 +22,10 @@ export const SigninSignupContainer = styled.div`
   background: transparent;
   background: linear-gradient(112deg, #ffffff 0%, #ffffff00 100%) 0% 0%
     no-repeat padding-box;
-  border-radius: 39px;
+  border-radius: 19px;
   opacity: 1;
   backdrop-filter: blur(1rem);
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 728px) {
     height: 346px;
     width: 680px;
     justify-content: space-around;
