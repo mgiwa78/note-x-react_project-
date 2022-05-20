@@ -38,7 +38,7 @@ export const HeroSection = styled.div`
   }
   @media only screen and (min-width: 1276px) {
     height: 500px;
-    margin-top: 120px;
+    margin-top: 60px;
   }
   justify-content: center;
   /* border: 2px solid black; */
