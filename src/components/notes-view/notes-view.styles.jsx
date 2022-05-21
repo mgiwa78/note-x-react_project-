@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const NotesViewContainer = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -11,7 +11,14 @@ export const NotesViewContainer = styled.div`
   padding: 25px;
 
   height: max-content;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 30px 0;
   padding-bottom: 30px;
+  @media screen and (min-width: 850px) {
+    margin: 0;
+    max-width: 450px;
+  }
+  @media screen and (min-width: 1300px) {
+    max-width: 580px;
+    border-radius: 10px;
+  }
 `;

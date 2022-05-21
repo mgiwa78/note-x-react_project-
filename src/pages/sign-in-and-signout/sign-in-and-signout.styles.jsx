@@ -30,4 +30,9 @@ export const SigninSignupContainer = styled.div`
     width: 680px;
     justify-content: space-around;
   }
+  @media only screen and (min-width: 1100px) {
+    height: 60vh;
+    width: 70%;
+    justify-content: center;
+  }
 `;

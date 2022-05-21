@@ -5,6 +5,11 @@ export const EditNoteFormInput = styled.div`
   height: 100px;
   padding-top: 10px;
   margin-top: 15px;
+  padding-right: 10px;
+  @media screen and (min-width: 1300px) {
+    height: 150px;
+    margin-top: 15px;
+  }
 `;
 
 export const EditTopInput = styled.div`
@@ -29,6 +34,9 @@ export const EditTitleInput = styled(EditNoteInput)`
     font-weight: 300;
     color: #000c9076;
   }
+  @media screen and (min-width: 1300px) {
+    font-size: 30px;
+  }
 `;
 
 export const EditContentInput = styled(EditNoteInput)`
@@ -39,6 +47,9 @@ export const EditContentInput = styled(EditNoteInput)`
 
   &::placeholder {
     color: #000c9076;
+  }
+  @media screen and (min-width: 1300px) {
+    font-size: 14px;
   }
 `;
 
@@ -54,4 +65,9 @@ export const EditPriority = styled.select`
   font-size: 12px;
   cursor: inherit;
   line-height: inherit;
+
+  @media screen and (min-width: 1300px) {
+    font-size: 15px;
+    width: 83px;
+  }
 `;

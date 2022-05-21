@@ -1,7 +1,27 @@
 import styled, { css } from "styled-components";
 
 const getBtnType = (props) => {
-  return props.authBtn
+  return props.newNote
+    ? css`
+        height: 26px;
+        font-size: 16px;
+        width: 150px;
+        border-radius: 5px;
+
+        background: transparent
+          linear-gradient(105deg, #ed3107bf 0%, #4c24ff 100%) 0% 0% no-repeat
+          padding-box;
+        margin: 0;
+        font-weight: 600;
+
+        @media screen and (min-width: 1300px) {
+          font-size: 20px;
+          height: 34px;
+          width: 190px;
+          border-radius: 5px;
+        }
+      `
+    : props.authBtn
     ? css`
         height: 26px;
         font-size: 16px;
@@ -32,6 +52,11 @@ const getBtnType = (props) => {
         width: 70px;
         background-color: #4c24ff;
         margin-right: 20px;
+        @media only screen and (min-width: 1300px) {
+          height: 30px;
+          font-size: 17px;
+          width: 105px;
+        }
       `
     : props.deleteBtn
     ? css`
@@ -41,6 +66,11 @@ const getBtnType = (props) => {
         width: 70px;
 
         background-color: #ed3107;
+        @media only screen and (min-width: 1300px) {
+          height: 30px;
+          font-size: 17px;
+          width: 105px;
+        }
       `
     : props.navBtn
     ? css`

@@ -4,23 +4,23 @@ export const UserHomeDesignContainer = styled.div`
   .userPosition1 {
     background: linear-gradient(238deg, #ff5d13 0%, #4c24ff 100%) 0% 0%
       no-repeat padding-box;
-    top: -28%;
-    left: -20%;
-    width: 500;
-    height: 500;
+    top: -100px;
+    left: -123px;
+    width: 300px;
+    height: 300px;
   }
   .userPosition2 {
     background: linear-gradient(238deg, #7e36dc 0%, #ff0a0ab3 100%) 0% 0%
       no-repeat padding-box;
     top: 80%;
-    left: 40%;
-    width: 420px;
-    height: 418px;
+    left: 15%;
+    width: 520px;
+    height: 518px;
   }
   .userPosition3 {
     background: linear-gradient(238deg, #ff0000df 0%, #ff010173 100%) 0% 0%
       no-repeat padding-box;
-    top: -10%;
+    top: -18%;
     left: 70%;
     width: 741px;
     height: 534px;

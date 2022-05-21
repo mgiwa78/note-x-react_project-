@@ -21,13 +21,18 @@ export const PaginationBtns = styled.div`
 `;
 export const ArrowText = styled.span`
   font-size: 15px;
+  @media screen and (min-width: 850px) {
+    font-size: 17px;
+  }
 `;
 export const PaginationBtn = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 60px;
-
+  @media screen and (min-width: 850px) {
+    width: 66px;
+  }
   .right-arrow {
     margin-left: 5px;
   }

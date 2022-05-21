@@ -50,7 +50,7 @@ const CreateNote = () => {
   };
   return (
     <>
-      <ButtonComponent onClick={() => handleSubmit("create")} authBtn>
+      <ButtonComponent onClick={() => handleSubmit("create")} newNote>
         {" "}
         Create new note
       </ButtonComponent>

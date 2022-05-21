@@ -17,6 +17,7 @@ import {
   EditTopInput,
   EditPriority,
 } from "./edit-note.styles.jsx";
+import { EditNoteTop } from "../create-note-tab/create-note.styles.jsx";
 
 const EditNote = () => {
   const dispatch = useDispatch();
@@ -80,23 +81,25 @@ const EditNote = () => {
             className="edit-note"
           >
             <EditNoteFormInput>
-              <EditTitleInput
-                value={title}
-                name="title"
-                type="text"
-                placeholder="Add title here"
-                onChange={handleChange}
-              />
-              <EditPriority
-                name="priority"
-                defaultValue={priority}
-                placeholder="Priority"
-                onChange={handleChange}
-              >
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
-              </EditPriority>
+              <EditNoteTop>
+                <EditTitleInput
+                  value={title}
+                  name="title"
+                  type="text"
+                  placeholder="Add title here"
+                  onChange={handleChange}
+                />
+                <EditPriority
+                  name="priority"
+                  defaultValue={priority}
+                  placeholder="Priority"
+                  onChange={handleChange}
+                >
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </EditPriority>
+              </EditNoteTop>
 
               <EditContentInput
                 value={body}

@@ -18,4 +18,7 @@ export const SignInContainer = styled.div`
   @media only screen and (min-width: 551px) {
     margin-right: 30px;
   }
+  @media only screen and (min-width: 1100px) {
+    margin-right: 100px;
+  }
 `;
