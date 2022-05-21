@@ -80,25 +80,24 @@ const EditNote = () => {
             className="edit-note"
           >
             <EditNoteFormInput>
-              <EditTopInput>
-                <EditTitleInput
-                  value={title}
-                  name="title"
-                  type="text"
-                  placeholder="Add title here"
-                  onChange={handleChange}
-                />
-                <EditPriority
-                  name="priority"
-                  defaultValue={priority}
-                  placeholder="Priority"
-                  onChange={handleChange}
-                >
-                  <option value="High">High</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Low">Low</option>
-                </EditPriority>
-              </EditTopInput>
+              <EditTitleInput
+                value={title}
+                name="title"
+                type="text"
+                placeholder="Add title here"
+                onChange={handleChange}
+              />
+              <EditPriority
+                name="priority"
+                defaultValue={priority}
+                placeholder="Priority"
+                onChange={handleChange}
+              >
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </EditPriority>
+
               <EditContentInput
                 value={body}
                 name="body"

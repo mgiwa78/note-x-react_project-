@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const EditNoteFormInput = styled.div`
-  padding: 20px;
   color: #000b90;
-
+  height: 100px;
+  padding-top: 10px;
   margin-top: 15px;
-  height: 160px;
 `;
 
 export const EditTopInput = styled.div`
   display: flex;
-  margin-top: 35px;
-  justify-content: space-between;
+  padding-top: 30px;
+  justify-content: flex-start;
 `;
 
 export const EditNoteInput = styled.input`
@@ -21,9 +20,9 @@ export const EditNoteInput = styled.input`
 `;
 
 export const EditTitleInput = styled(EditNoteInput)`
-  font-size: 30px;
+  font-size: 20px;
   padding: 0 10px;
-  width: 350px;
+  width: 90px;
   color: #000b90;
 
   &::placeholder {
@@ -34,7 +33,7 @@ export const EditTitleInput = styled(EditNoteInput)`
 
 export const EditContentInput = styled(EditNoteInput)`
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 12px;
   width: 100%;
   color: #000c90a7;
 
@@ -44,15 +43,15 @@ export const EditContentInput = styled(EditNoteInput)`
 `;
 
 export const EditPriority = styled.select`
-  width: 100px;
+  width: 68px;
   background-color: transparent;
   border: none;
   padding: 0 0 0 0;
   margin: 0;
-  color: #000c9076;
+  color: #000c90b0;
 
   font-family: inherit;
-  font-size: inherit;
+  font-size: 12px;
   cursor: inherit;
   line-height: inherit;
 `;

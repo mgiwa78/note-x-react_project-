@@ -11,6 +11,7 @@ import { SetNotePage } from "../../redux/notes/notes-actions";
 import {
   ArrowText,
   PaginationBtn,
+  PaginationBtns,
   PaginationContainer,
 } from "./pagination.styles.jsx";
 
@@ -34,18 +35,20 @@ const Pagination = () => {
   };
   return (
     <PaginationContainer>
-      <PaginationBtn onClick={() => handlePageClick("dec", pageNumber)}>
-        <ArrowLeft />
-        <ArrowText>
-          Page {pageNumber - 1 ? `${pageNumber - 1}` : null}
-        </ArrowText>
-      </PaginationBtn>
-      <PaginationBtn onClick={() => handlePageClick("inc", pageNumber)}>
-        <ArrowRight />
-        <ArrowText>
-          Page {pageNumber + 1 > notesArray ? ` ` : `${pageNumber + 1}`}
-        </ArrowText>
-      </PaginationBtn>
+      <PaginationBtns>
+        <PaginationBtn onClick={() => handlePageClick("dec", pageNumber)}>
+          <ArrowLeft className="left-arrow" />
+          <ArrowText>
+            Page {pageNumber - 1 ? `${pageNumber - 1}` : null}
+          </ArrowText>
+        </PaginationBtn>
+        <PaginationBtn onClick={() => handlePageClick("inc", pageNumber)}>
+          <ArrowText>
+            Page {pageNumber + 1 > notesArray ? ` ` : `${pageNumber + 1}`}
+          </ArrowText>
+          <ArrowRight className="right-arrow" />
+        </PaginationBtn>
+      </PaginationBtns>
     </PaginationContainer>
   );
 };

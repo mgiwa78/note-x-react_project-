@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
 export const UserHomeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 0;
-  height: inherit;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  width: 90%;
+  .noteView {
+  }
 `;
 export const UserHomeBlur = styled.div`
-display: flex;
-
+  display: flex;
 `;

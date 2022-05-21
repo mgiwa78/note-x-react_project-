@@ -16,13 +16,15 @@ export const NavigationBarComponent = styled.div`
   }
 `;
 export const UserLogo = styled(UserSvg)`
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 `;
 export const UserLeftContainer = styled.div`
-  width: 80px;
+  width: max-content;
   height: 30px;
   display: flex;
   align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 `;

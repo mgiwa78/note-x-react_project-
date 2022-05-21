@@ -38,7 +38,6 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const createUserDocFromAuth = async (userAuth, full_name) => {
-  console.log(userAuth);
   const userRef = doc(db, "users", userAuth.uid);
 
   const docSnapshot = await getDoc(userRef);

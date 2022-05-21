@@ -1,5 +1,5 @@
 import PageBlur from "../../components/page-blur/blur.component";
-import UserHomeDsignLayer from "../../components/user-home-design/user-home-design.components";
+import UserHomeDesignLayer from "../../components/user-home-design/user-home-design.components";
 import "./user-home.styles.jsx";
 
 import React, { useEffect } from "react";
@@ -29,10 +29,10 @@ const UserHome = () => {
   return (
     <React.Fragment>
       <PageBlur />
-      <UserHomeDsignLayer />
+      <UserHomeDesignLayer />
       <UserHomeContainer>
         <NoteList />
-        <NotesView />
+        <NotesView className="noteView" />
       </UserHomeContainer>
     </React.Fragment>
   );

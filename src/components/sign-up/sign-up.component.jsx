@@ -24,11 +24,11 @@ const SignUp = () => {
   };
 
   const handleSubmit = async () => {
-    if (!email === password) return;
-    if (confirmPassword !== password)
+    if (email === password) return;
+    if (confirmPassword !== password) {
       return alert("Invalid password combination");
+    }
     const userAuth = await createAuthUserWithEmailAndPassword(email, password);
-    console.log(userAuth);
 
     await createUserDocFromAuth(userAuth, full_name);
   };
@@ -66,7 +66,7 @@ const SignUp = () => {
         <FormInput
           value={confirmPassword}
           type="password"
-          name="confirmpassword"
+          name="confirmPassword"
           placeholder="Confirm Password:"
           onChange={handleChange}
         />

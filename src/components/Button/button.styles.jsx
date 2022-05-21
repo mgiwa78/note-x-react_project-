@@ -3,15 +3,16 @@ import styled, { css } from "styled-components";
 const getBtnType = (props) => {
   return props.authBtn
     ? css`
-        height: 20px;
-        font-size: 14px;
-        width: 120px;
+        height: 26px;
+        font-size: 16px;
+        width: 150px;
+        border-radius: 5px;
+
         background: transparent
           linear-gradient(105deg, #ed3107bf 0%, #4c24ff 100%) 0% 0% no-repeat
           padding-box;
         margin: 0;
         font-weight: 600;
-        border-radius: 5px;
         @media only screen and (min-width: 768px) {
           height: 29px;
           font-size: 19px;
@@ -25,17 +26,19 @@ const getBtnType = (props) => {
       `
     : props.createBtn
     ? css`
-        font-size: 19px;
+        font-size: 13px;
         margin: 0px;
-        height: 35px;
-        width: 130px;
+        height: 25px;
+        width: 70px;
         background-color: #4c24ff;
+        margin-right: 20px;
       `
     : props.deleteBtn
     ? css`
-        height: 35px;
-        width: 120px;
-        font-size: 19px;
+        font-size: 13px;
+        margin: 0px;
+        height: 25px;
+        width: 70px;
 
         background-color: #ed3107;
       `
@@ -53,7 +56,7 @@ const getBtnType = (props) => {
 };
 
 export const ButtonComponent = styled.button`
-  border-radius: 10px;
+  border-radius: 4px;
   justify-content: center;
   display: flex;
   color: #fff;

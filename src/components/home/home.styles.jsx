@@ -4,10 +4,10 @@ import { ReactComponent as Svg } from "../../svg/heroImg.svg";
 // export const mainSvg = styled.svg(Svg);
 
 export const HeroSvg = styled(Svg)`
-  height: 200px;
+  height: 240px;
   margin-top: 40px;
   @media only screen and (min-width: 425px) {
-    height: 250px;
+    height: 260px;
   }
   @media only screen and (min-width: 860px) {
     margin-right: 20px;
