@@ -36,8 +36,11 @@ export const SigninSignupContainer = styled.div`
   }
   @media only screen and (min-width: 1100px) {
     height: max-content;
-    width: 70%;
-    justify-content: center;
+    width: max-content;
+    justify-content: flex-start;
+    padding-right: 100px;
+    padding-left: 100px;
+
     align-items: center;
   }
 `;
