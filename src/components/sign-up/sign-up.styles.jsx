@@ -11,5 +11,20 @@ export const SignUpTitle = styled.p`
 `;
 export const SignUpForm = styled.p`
   margin: 10px 0;
+  .passwordToggle {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    color: #000c906a;
+    :hover {
+      color: #000b90;
+      cursor: pointer;
+    }
+  }
+
+  .passWrapper {
+    position: relative;
+    display: flex;
+  }
 `;
 export const SignUpContainer = styled.div``;

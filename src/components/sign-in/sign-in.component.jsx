@@ -7,8 +7,12 @@ import { ButtonComponent } from "../Button/button.styles";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in.styles.jsx";
 import { SignInContainer, SignInForm, SignInTitle } from "./sign-in.styles.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const SignIn = () => {
+  const eye = <FontAwesomeIcon icon={faEye} />;
+
   const user = useSelector(selectCurrentUser);
   const Navigate = useNavigate();
   const defaultForm = {
@@ -35,6 +39,10 @@ const SignIn = () => {
       Navigate("/user");
     }
   };
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   useEffect(() => displayUserHome(), [user]);
   return (
@@ -50,13 +58,20 @@ const SignIn = () => {
           name="email"
           placeholder="Email"
         />
-        <br />
-        <FormInput
-          type="password"
-          onChange={handleChange}
-          name="password"
-          placeholder="Password"
-        />
+        <br />{" "}
+        <div className="passWrapper">
+          <FormInput
+            key="passwordInput"
+            type={passwordShown ? "text" : "password"}
+            onChange={handleChange}
+            name="password"
+            placeholder="Password"
+          />
+
+          <i className="passwordToggle" onClick={togglePasswordVisiblity}>
+            {eye}
+          </i>
+        </div>
       </SignInForm>
       <ButtonComponent onClick={handleSubmit} authBtn>
         {" "}

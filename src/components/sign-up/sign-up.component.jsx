@@ -7,8 +7,12 @@ import {
 } from "../../firebase/firebase.utils";
 import { ButtonComponent } from "../Button/button.styles";
 import { SignUpContainer, SignUpForm, SignUpTitle } from "./sign-up.styles.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
+  const eye = <FontAwesomeIcon icon={faEye} />;
+
   const defaultFormFields = {
     full_name: "",
     email: "",
@@ -44,6 +48,14 @@ const SignUp = () => {
       else alert(error.message);
     }
   };
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [confirmpasswordShown, setConfirmPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+  const toggleConfirmPasswordVisiblity = () => {
+    setConfirmPasswordShown(confirmpasswordShown ? false : true);
+  };
 
   return (
     <SignUpContainer>
@@ -67,20 +79,32 @@ const SignUp = () => {
           onChange={handleChange}
         />
         <br />
-        <FormInput
-          value={password}
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-        <br />
-        <FormInput
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          onChange={handleChange}
-        />
+        <div className="passWrapper">
+          <FormInput
+            value={password}
+            type={passwordShown ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <i className="passwordToggle" onClick={togglePasswordVisiblity}>
+            {eye}
+          </i>
+        </div>
+        <div className="passWrapper">
+          <FormInput
+            type={confirmpasswordShown ? "text" : "password"}
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            onChange={handleChange}
+          />
+          <i
+            className="passwordToggle"
+            onClick={toggleConfirmPasswordVisiblity}
+          >
+            {eye}
+          </i>
+        </div>
       </SignUpForm>
 
       <ButtonComponent onClick={handleSubmit} authBtn>
