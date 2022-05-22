@@ -6,8 +6,7 @@ export const SignInTitle = styled.p`
   font-weight: 700;
   color: #000b90;
   @media only screen and (min-width: 768px) {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 20px;
   }
 `;
 export const SignInForm = styled.div`

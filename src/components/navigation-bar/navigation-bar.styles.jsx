@@ -5,6 +5,7 @@ export const NavigationBarComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 30px;
   .logo {
     width: 120px;
     margin-bottom: -8px;

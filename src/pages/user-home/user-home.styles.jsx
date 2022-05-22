@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const UserHomeContainer = styled.div`
   align-items: center;
-  padding-top: 40px;
   padding-bottom: 80px;
   height: 100%;
   position: fixed;

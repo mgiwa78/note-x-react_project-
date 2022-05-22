@@ -26,6 +26,7 @@ const SignIn = () => {
   };
 
   const handleSubmit = () => {
+    if (!(email && password)) return alert("Invalid inputs found");
     signUserInWithEmailAndPassword(email, password);
   };
 
@@ -47,14 +48,14 @@ const SignIn = () => {
           type="email"
           onChange={handleChange}
           name="email"
-          placeholder="Email:"
+          placeholder="Email"
         />
         <br />
         <FormInput
           type="password"
           onChange={handleChange}
           name="password"
-          placeholder="Password:"
+          placeholder="Password"
         />
       </SignInForm>
       <ButtonComponent onClick={handleSubmit} authBtn>

@@ -28,23 +28,40 @@ export const auth = getAuth(app);
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-  return createUserWithEmailAndPassword(auth, email, password).then(
-    (userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      return user;
-    }
-  );
+  try {
+    return createUserWithEmailAndPassword(auth, email, password).then(
+      (userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        return user;
+      }
+    );
+  } catch (error) {
+    if (error.message === "Firebase: Error (auth/network-request-failed).")
+      return alert("No network connection, check your network and try again");
+    if (
+      error.message ===
+      "FirebaseError: Firebase: Error (auth/network-request-failed)."
+    )
+      return alert("No network connection, check your network and try again");
+    else alert(error.message);
+  }
 };
 
 export const createUserDocFromAuth = async (userAuth, full_name) => {
   const userRef = doc(db, "users", userAuth.uid);
 
-  const docSnapshot = await getDoc(userRef);
-  if (!docSnapshot.exists()) {
-    const date = new Date();
+  try {
+    const docSnapshot = await getDoc(userRef);
+    if (!docSnapshot.exists()) {
+      const date = new Date();
 
-    await setDoc(userRef, { full_name, created_at: date });
+      await setDoc(userRef, { full_name, created_at: date });
+    }
+  } catch (error) {
+    if (error.message === "Firebase: Error (auth/network-request-failed).")
+      return alert("No network connection, check your network and try again");
+    else alert(error.message);
   }
 
   return userRef;
@@ -52,52 +69,56 @@ export const createUserDocFromAuth = async (userAuth, full_name) => {
 
 export const syncNoteData = async (user, notes) => {
   try {
-    console.log(notes);
-
     const { uid } = user;
 
     const userDataRef = doc(db, `users/${uid}/`);
 
-    console.log(userDataRef);
-
     const userDataSnapShot = await getDoc(userDataRef);
-
-    console.log(userDataSnapShot.data().notes);
 
     const notesRawData = await userDataSnapShot.data().notes;
 
     if (notes !== notesRawData) {
       const toSyncNote = { notes };
       await setDoc(userDataRef, toSyncNote);
+
+      alert("Your notes have been synced successfully");
     }
   } catch (error) {
-    console.error(error);
+    if (error.message === "Firebase: Error (auth/network-request-failed).")
+      return alert("No network connection, check your network and try again");
+    else alert(error.message);
   }
 };
 
 export const getUserDataAsync = async (user) => {
+  let acc = {};
   if (!user) return;
 
   const { uid } = user;
-  const userDataRef = doc(db, `users/${uid}/`);
-  const userDataSnapShot = await getDoc(userDataRef);
+  try {
+    const userDataRef = doc(db, `users/${uid}/`);
+    const userDataSnapShot = await getDoc(userDataRef);
 
-  if (!userDataSnapShot.exists()) return;
-  // if (userDataSnapShot.data().notes) return;
-  // await setDoc(userDataRef, NOTE_DATA);
-  const notesRawData = await userDataSnapShot.data().notes;
+    if (!userDataSnapShot.exists()) return;
+    // if (userDataSnapShot.data().notes) return;
+    // await setDoc(userDataRef, NOTE_DATA);
+    const notesRawData = await userDataSnapShot.data().notes;
 
-  if (!notesRawData) return;
+    if (!notesRawData) return;
 
-  const noteKeys = Object.keys(notesRawData);
-  if (!notesRawData) return;
-  let acc = {};
+    const noteKeys = Object.keys(notesRawData);
+    if (!notesRawData) return;
 
-  noteKeys.forEach((noteKey) => {
-    const note = { ...notesRawData[noteKey], sync: true, isLoading: false };
+    noteKeys.forEach((noteKey) => {
+      const note = { ...notesRawData[noteKey], sync: true, isLoading: false };
 
-    acc = { ...acc, [noteKey]: note };
-  });
+      acc = { ...acc, [noteKey]: note };
+    });
+  } catch (error) {
+    if (error.message === "Firebase: Error (auth/network-request-failed).")
+      return alert("No network connection, check your network and try again");
+    else alert(error.message);
+  }
 
   return acc;
 
@@ -108,8 +129,15 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (error) {
-    console.error(error);
-    alert("We encountered an error:", error);
+    console.log(error.message);
+    if (error.message === "Firebase: Error (auth/user-not-found).")
+      return alert("Invalid user, Create an account and sign in again");
+
+    if (error.message === "Firebase: Error (auth/wrong-password).")
+      return alert("Invalid password, check your password and try again");
+    if (error.message === "Firebase: Error (auth/network-request-failed).")
+      return alert("No network connection, check your network and try again");
+    else return alert(error.message);
   }
 };
 

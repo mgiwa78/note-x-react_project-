@@ -24,13 +24,25 @@ const SignUp = () => {
   };
 
   const handleSubmit = async () => {
-    if (email === password) return;
+    if (!(email && password && confirmPassword && full_name))
+      return alert("Invalid inputs found");
+    if (email === password)
+      return alert("Email and password can't be the same");
     if (confirmPassword !== password) {
       return alert("Invalid password combination");
     }
-    const userAuth = await createAuthUserWithEmailAndPassword(email, password);
+    try {
+      const userAuth = await createAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
 
-    await createUserDocFromAuth(userAuth, full_name);
+      await createUserDocFromAuth(userAuth, full_name);
+    } catch (error) {
+      if (error.message === "Firebase: Error (auth/network-request-failed).")
+        return alert("No network connection, check your network and try again");
+      else alert(error.message);
+    }
   };
 
   return (
@@ -43,7 +55,7 @@ const SignUp = () => {
           value={full_name}
           type="text"
           name="full_name"
-          placeholder="Full Name:"
+          placeholder="Full Name"
           onChange={handleChange}
         />
         <br />
@@ -51,7 +63,7 @@ const SignUp = () => {
           value={email}
           type="email"
           name="email"
-          placeholder="Email:"
+          placeholder="Email"
           onChange={handleChange}
         />
         <br />
@@ -59,15 +71,14 @@ const SignUp = () => {
           value={password}
           type="password"
           name="password"
-          placeholder="Password:"
+          placeholder="Password"
           onChange={handleChange}
         />
         <br />
         <FormInput
-          value={confirmPassword}
           type="password"
           name="confirmPassword"
-          placeholder="Confirm Password:"
+          placeholder="Confirm Password"
           onChange={handleChange}
         />
       </SignUpForm>

@@ -9,14 +9,15 @@ export const SigninSignupContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 20px 40px;
+  justify-content: center;
+
+  padding: 40px 40px;
   height: inherit;
   background-color: white;
   width: 300px;
 
   margin-top: 50px;
-  align-items: center;
+  align-items: flex-start;
 
   /* UI Properties */
   background: transparent;
@@ -28,11 +29,15 @@ export const SigninSignupContainer = styled.div`
   @media only screen and (min-width: 728px) {
     height: 346px;
     width: 680px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
     justify-content: space-around;
   }
   @media only screen and (min-width: 1100px) {
-    height: 60vh;
+    height: max-content;
     width: 70%;
     justify-content: center;
+    align-items: center;
   }
 `;

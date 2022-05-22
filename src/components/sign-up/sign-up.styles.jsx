@@ -6,8 +6,7 @@ export const SignUpTitle = styled.p`
 
   color: #000b90;
   @media only screen and (min-width: 768px) {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 20px;
   }
 `;
 export const SignUpForm = styled.p`

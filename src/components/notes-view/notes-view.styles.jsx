@@ -12,6 +12,8 @@ export const NotesViewContainer = styled.div`
 
   height: max-content;
   margin: 30px 0;
+  max-width: 430px;
+
   padding-bottom: 30px;
   @media screen and (min-width: 850px) {
     margin: 0;

@@ -8,11 +8,13 @@ export const NoteFormInput = styled.div`
   height: 100px;
   border-radius: 5px;
   font-size: 16px;
+
   @media screen and (min-width: 1300px) {
     height: 150px;
     margin-top: 15px;
   }
 `;
+
 export const TopInput = styled.div`
   display: flex;
   justify-content: space-between;
@@ -29,6 +31,7 @@ export const TitleInput = styled(NoteInput)`
   padding: 0 10px;
   width: 90px;
   color: white;
+
   @media screen and (min-width: 1300px) {
     font-size: 30px;
   }
@@ -44,6 +47,7 @@ export const ContentInput = styled(NoteInput)`
   font-size: 12px;
   width: 100%;
   color: rgba(255, 255, 255, 0.892);
+
   @media screen and (min-width: 1300px) {
     font-size: 14px;
   }
@@ -57,6 +61,7 @@ export const EditNoteTop = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 export const Priority = styled.select`
   width: 68px;
   background-color: transparent;
