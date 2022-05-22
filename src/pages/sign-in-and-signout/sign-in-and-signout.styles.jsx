@@ -9,7 +9,7 @@ export const SigninSignupContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 
   padding: 40px 40px;
   height: inherit;
@@ -17,7 +17,7 @@ export const SigninSignupContainer = styled.div`
   width: 300px;
 
   margin-top: 50px;
-  align-items: flex-start;
+  align-items: center;
 
   /* UI Properties */
   background: transparent;

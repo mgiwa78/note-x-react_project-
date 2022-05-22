@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 const SignUp = () => {
-  const eye = <FontAwesomeIcon icon={faEye} />;
+  const eye = <FontAwesomeIcon className="icon" icon={faEye} />;
 
   const defaultFormFields = {
     full_name: "",

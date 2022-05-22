@@ -10,6 +10,9 @@ export const SignUpTitle = styled.p`
   }
 `;
 export const SignUpForm = styled.p`
+  .icon {
+    width: 14px;
+  }
   margin: 10px 0;
   .passwordToggle {
     position: absolute;

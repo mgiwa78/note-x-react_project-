@@ -11,6 +11,9 @@ export const SignInTitle = styled.p`
   }
 `;
 export const SignInForm = styled.div`
+  .icon {
+    width: 14px;
+  }
   margin: 10px 0;
   .passwordToggle {
     position: absolute;
