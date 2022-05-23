@@ -15,11 +15,14 @@ export const SigninSignupContainer = styled.div`
   height: inherit;
   background-color: white;
   width: 300px;
-
   margin-top: 50px;
   align-items: center;
 
-  /* UI Properties */
+  /*
+
+   UI Properties 
+   
+  */
   background: transparent;
   background: linear-gradient(112deg, #ffffff 0%, #ffffff00 100%) 0% 0%
     no-repeat padding-box;
@@ -40,7 +43,6 @@ export const SigninSignupContainer = styled.div`
     justify-content: flex-start;
     padding-right: 100px;
     padding-left: 100px;
-
     align-items: center;
   }
 `;
