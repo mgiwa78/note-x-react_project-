@@ -28,24 +28,26 @@ export const HeroSvg = styled(Svg)`
 `;
 
 export const HeroSection = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
+  padding-bottom: 80px;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 90%;
+
   @media only screen and (min-width: 1200px) {
-    height: 500px;
-    margin-top: 50px;
+    height: 550px;
+    margin-top: 30px;
+    overflow-y: hidden;
   }
   @media only screen and (min-width: 1276px) {
     height: 500px;
     margin-top: 60px;
   }
-  justify-content: center;
-  /* border: 2px solid black; */
-  margin: 15px 25px;
-  height: 100vmax;
-  max-height: 500px;
-  padding: 0;
 
   .home {
     z-index: 4;

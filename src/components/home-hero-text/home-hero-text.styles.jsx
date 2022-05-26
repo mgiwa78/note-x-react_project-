@@ -8,6 +8,7 @@ export const HeroTextStyle = styled.span`
   font-size: 50px;
   color: #000b90;
   padding-left: 0px;
+  padding-bottom: 50px;
 
   @media only screen and (min-width: 425px) {
     font-size: 52px;
@@ -37,7 +38,7 @@ export const HeroTextStyle = styled.span`
     width: 500px;
   }
   @media only screen and (min-width: 1200px) {
-    font-size: 90px;
+    font-size: 85px;
     width: 500px;
   }
   @media only screen and (min-width: 1260px) {
