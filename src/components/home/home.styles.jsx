@@ -45,8 +45,11 @@ export const HeroSection = styled.div`
     overflow-y: hidden;
   }
   @media only screen and (min-width: 1276px) {
-    height: 500px;
+    height: 570px;
     margin-top: 60px;
+  }
+  @media only screen and (min-width: 1260px) {
+    padding-bottom: 20px;
   }
 
   .home {
