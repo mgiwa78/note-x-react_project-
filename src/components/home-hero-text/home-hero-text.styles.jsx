@@ -43,6 +43,6 @@ export const HeroTextStyle = styled.span`
   }
   @media only screen and (min-width: 1260px) {
     font-size: 95px;
-    margin-left: -190px;
+    margin-left: -120px;
   }
 `;

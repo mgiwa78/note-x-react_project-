@@ -42,11 +42,10 @@ export const HeroSection = styled.div`
   @media only screen and (min-width: 1200px) {
     height: 550px;
     margin-top: 30px;
-    overflow-y: hidden;
+    overflow: hidden;
   }
   @media only screen and (min-width: 1276px) {
     height: 570px;
-    margin-top: 60px;
   }
   @media only screen and (min-width: 1260px) {
     padding-bottom: 20px;
